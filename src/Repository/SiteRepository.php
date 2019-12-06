@@ -1,9 +1,9 @@
 <?php
 
-class SiteRepository implements Repository
-{
-    use SingletonTrait;
+require_once __DIR__ . '/RepositoryInterface.php';
 
+class SiteRepository implements RepositoryInterface
+{
     /**
      * @param int $id
      *

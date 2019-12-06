@@ -1,9 +1,9 @@
 <?php
 
-class DestinationRepository implements Repository
-{
-    use SingletonTrait;
+require_once __DIR__ . '/RepositoryInterface.php';
 
+class DestinationRepository implements RepositoryInterface
+{
     /**
      * @param int $id
      *
