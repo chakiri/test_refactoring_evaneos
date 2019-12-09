@@ -13,13 +13,14 @@ class QuoteRepository implements RepositoryInterface
      */
     public function getById($id)
     {
-        $generator = \Faker\Factory::create();
-        $generator->seed($id);
+        $faker = \Faker\Factory::create();
+        $faker->seed($id);
+
         return new Quote(
             $id,
-            $generator->numberBetween(1, 10),
-            $generator->numberBetween(1, 200),
-            $generator->date()
+            $faker->numberBetween(1, 10),
+            $faker->numberBetween(1, 200),
+            $faker->date()
         );
     }
 }

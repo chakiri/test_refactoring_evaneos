@@ -9,3 +9,5 @@ I put all attributes in the entities on private and added getters and setters fo
 I edit the function computeText to make it more clear.
 
 I adapted the example file to the news functions.
+
+Used Autoload psr-4 with composer

@@ -8,6 +8,8 @@ use App\Service\RandomContext;
 
 $faker = \Faker\Factory::create();
 
+$templateManager = new TemplateManager();
+$randomContext = new RandomContext();
 $template = new Template(
     1,
     'Votre voyage avec une agence locale [quote:destination_name]',
@@ -23,15 +25,10 @@ Bien cordialement,
 L'équipe Evaneos.com
 www.evaneos.com
 ");
-$templateManager = new TemplateManager();
 
-$randomContext = new RandomContext();
-
-$message = $templateManager->getTemplateComputed(
-    $template,
-    [
-        'quote' => $randomContext->getCurrentQuote()
-    ]
-);
+$message = $templateManager->getTemplateComputed($template, [
+        'quote' => $randomContext->getCurrentQuote(),
+        'user' => $randomContext->getCurrentUser()
+    ]);
 
 echo $message->getSubject() . "\n" . $message->getContent();

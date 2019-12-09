@@ -2,7 +2,8 @@
 
 namespace App\Repository;
 
-interface RepositoryInterface
-{
+interface RepositoryInterface {
+
     public function getById($id);
+
 }
