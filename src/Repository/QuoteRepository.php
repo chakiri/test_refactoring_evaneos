@@ -1,6 +1,8 @@
 <?php
 
-require_once __DIR__ . '/RepositoryInterface.php';
+namespace App\Repository;
+
+use App\Entity\Quote;
 
 class QuoteRepository implements RepositoryInterface
 {
@@ -11,13 +13,13 @@ class QuoteRepository implements RepositoryInterface
      */
     public function getById($id)
     {
-        $generator = Faker\Factory::create();
+        $generator = \Faker\Factory::create();
         $generator->seed($id);
         return new Quote(
             $id,
             $generator->numberBetween(1, 10),
             $generator->numberBetween(1, 200),
-            $generator->dateTime()
+            $generator->date()
         );
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
-require_once __DIR__ . '/RepositoryInterface.php';
+namespace App\Repository;
+
+use App\Entity\Site;
 
 class SiteRepository implements RepositoryInterface
 {
@@ -12,7 +14,7 @@ class SiteRepository implements RepositoryInterface
     public function getById($id)
     {
         // DO NOT MODIFY THIS METHOD
-        $faker = Faker\Factory::create();
+        $faker = \Faker\Factory::create();
         $faker->seed($id);
         return new Site($id, $faker->url);
     }

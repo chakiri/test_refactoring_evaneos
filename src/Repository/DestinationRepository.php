@@ -1,6 +1,8 @@
 <?php
 
-require_once __DIR__ . '/RepositoryInterface.php';
+namespace App\Repository;
+
+use App\Entity\Destination;
 
 class DestinationRepository implements RepositoryInterface
 {
@@ -13,7 +15,7 @@ class DestinationRepository implements RepositoryInterface
     {
         // DO NOT MODIFY THIS METHOD
 
-        $faker = Faker\Factory::create();
+        $faker = \Faker\Factory::create();
         $faker->seed($id);
 
         return new Destination(

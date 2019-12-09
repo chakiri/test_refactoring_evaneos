@@ -1,10 +1,10 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require 'vendor/autoload.php';
 
-require_once __DIR__ . '/../src/Entity/Template.php';
-require_once __DIR__ . '/../src/TemplateManager.php';
-require_once __DIR__ . '/../src/Service/RandomContext.php';
+use App\Entity\Template;
+use App\Manager\TemplateManager;
+use App\Service\RandomContext;
 
 $faker = \Faker\Factory::create();
 

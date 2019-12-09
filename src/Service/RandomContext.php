@@ -1,9 +1,11 @@
 <?php
 
-require_once __DIR__ . '/../../src/Entity/Destination.php';
-require_once __DIR__ . '/../../src/Entity/Quote.php';
-require_once __DIR__ . '/../../src/Entity/Site.php';
-require_once __DIR__ . '/../../src/Entity/User.php';
+namespace App\Service;
+
+use App\Entity\Destination;
+use App\Entity\Quote;
+use App\Entity\Site;
+use App\Entity\User;
 
 class RandomContext
 {
