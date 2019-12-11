@@ -3,9 +3,11 @@
 namespace App\Repository;
 
 use App\Entity\Site;
+use App\Traits\Instantiation;
 
 class SiteRepository implements RepositoryInterface
 {
+    use Instantiation;
     /**
      * @param int $id
      *

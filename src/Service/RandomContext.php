@@ -6,66 +6,33 @@ use App\Entity\Destination;
 use App\Entity\Quote;
 use App\Entity\Site;
 use App\Entity\User;
+use App\Traits\Instantiation;
 
 class RandomContext
 {
-    /**
-     * @var Site
-     */
-    private $currentSite;
-    /**
-     * @var User
-     */
-    private $currentUser;
+    use Instantiation;
 
-    /**
-     * @var Quote
-     */
-    private $currentQuote;
-
-    /**
-     * @var Destination
-     */
-    private $currentDestination;
+    private static $faker;
 
     public function __construct()
     {
-        $faker = \Faker\Factory::create();
-        $this->currentQuote = new Quote($faker->randomNumber(), $faker->randomNumber(), $faker->randomNumber(), $faker->date());
-        $this->currentUser = new User($faker->randomNumber(), $faker->firstName, $faker->lastName, $faker->email);
-        $this->currentDestination = new Destination($faker->randomNumber(), $faker->country, $faker->country, $faker->name);
-        $this->currentSite = new Site($faker->randomNumber(), $faker->url);
+        self::$faker = \Faker\Factory::create();
     }
 
-    /**
-     * @return Site
-     */
-    public function getCurrentSite()
-    {
-        return $this->currentSite;
+    public static function getSite(){
+        return new Site(self::$faker->randomNumber(), self::$faker->url);
     }
 
-    /**
-     * @return User
-     */
-    public function getCurrentUser()
-    {
-        return $this->currentUser;
+    public static function getUser(){
+        return new User(self::$faker->randomNumber(), self::$faker->firstName, self::$faker->lastName, self::$faker->email);
     }
 
-    /**
-     * @return Quote
-     */
-    public function getCurrentQuote()
-    {
-        return $this->currentQuote;
+    public static function getQuote(){
+        return new Quote(self::$faker->randomNumber(), self::$faker->randomNumber(), self::$faker->randomNumber(), self::$faker->date());
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCurrentDestination()
-    {
-        return $this->currentDestination;
+    public static function getDestination(){
+        return new Destination(self::$faker->randomNumber(), self::$faker->country, self::$faker->country, self::$faker->name);
     }
+
 }

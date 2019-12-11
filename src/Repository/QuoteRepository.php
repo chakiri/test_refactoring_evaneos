@@ -3,9 +3,11 @@
 namespace App\Repository;
 
 use App\Entity\Quote;
+use App\Traits\Instantiation;
 
 class QuoteRepository implements RepositoryInterface
 {
+    use Instantiation;
     /**
      * @param int $id
      *
