@@ -7,6 +7,8 @@ class ApplicationContext
 {
     protected $user;
     protected $quote;
+    protected $destination;
+    protected $site;
 
     public function __construct()
     {

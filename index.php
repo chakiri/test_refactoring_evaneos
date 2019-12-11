@@ -10,7 +10,7 @@ $subject = 'Votre voyage avec une agence locale [quote:destination_name]';
 $content = "
 Bonjour Mr [user:last_name] [user:first_name],
     
-Merci d'avoir contacté un agent local pour votre voyage [quote:destination_name].
+Merci d'avoir contacté un agent local pour votre voyage au [quote:destination_name].
 
 Site de reservation : [quote:destination_link]
 

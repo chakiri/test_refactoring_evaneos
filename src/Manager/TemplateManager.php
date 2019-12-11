@@ -11,9 +11,10 @@ use App\Service\ApplicationContext;
 
 class TemplateManager extends ApplicationContext
 {
-    //Replace template by data information
     public function getTemplateComputed(Template $template, array $data)
     {
+        $this->verifData($data);
+
         if ($template) {
             $template->setSubject($this->replacePlaceholder($template->getSubject(), $data));
             $template->setContent($this->replacePlaceholder($template->getContent(), $data));
@@ -35,14 +36,11 @@ class TemplateManager extends ApplicationContext
             $this->destination = DestinationRepository::getInstance()->getById($this->quote->getDestinationId());
             $this->site = SiteRepository::getInstance()->getById($this->quote->getSiteId());
         }
-
     }
 
     //Replace text with data
     private function replacePlaceholder($text, array $data)
     {
-        $this->verifData($data);
-
         if(strpos($text, '[quote:summary_html]') !== false) {
             $text = str_replace('[quote:summary_html]', $this->quote->renderHtml($this->quote), $text);
         }
